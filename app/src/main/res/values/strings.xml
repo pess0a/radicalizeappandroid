@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">RadicalizeApp</string>
+    <string name="app_name">Radicalize</string>
+
+    <string name="first_text_onboarding">"Olá! Bem-vindo ao Radicalize.\n\nEste aplicativo está sendo desenvolvido para armazenar todos os tipos de aventuras radicais em um só lugar.\n\nAcampar, fazer trilha, tomar banho de cachoeira, saltar de bungee jump ou até pular de paraquedas!</string>
+    <string name="second_text_onboarding">Aqui você pode encontrar os mais diversos lugares e tipos de atividades radicais.\n\nProcure, divirta-se e colabore.\n\nCom a sua ajuda podemos crescer e melhorar nosso trabalho :)</string>
+    <string name="third_text_onboarding">Para sua melhor experiência, pedimos que permita sua localização para que possamos lhe mostrar as melhoras atividades.</string>
+    <string name="next">Próximo</string>
+    <string name="start">Começar</string>
 </resources>
