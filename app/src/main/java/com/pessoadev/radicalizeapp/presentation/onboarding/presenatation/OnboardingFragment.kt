@@ -31,24 +31,36 @@ class OnboardingFragment : Fragment() {
             text = it.getString(TEXT_PARAM)
             lastPage = it.getBoolean(LAST_PAGE_PARAM)
         }
+
+//        if(lastPage) {
+//            buttonAskPermission.setOnClickListener {
+//                askPermission()
+//            }
+//        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        view?.let {
+            Typewriter(view!!.textViewAnimate).apply {
+                animateText(text)
+                setOnFinishListener {
+                    if (lastPage) {
+                        buttonAskPermission.visibility = View.VISIBLE
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_onboarding, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_onboarding, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        Typewriter(view.textViewAnimate).apply {
-            animateText(text)
-            setOnFinishListener {
-                askPermission()
-            }
-        }
 
         if (lastPage) {
             buttonNext.text = getString(R.string.start)
@@ -58,8 +70,6 @@ class OnboardingFragment : Fragment() {
             (activity as OnboardingActivity).onButtonNextClicked()
         }
     }
-
-
 
     private fun askPermission() {
         Dexter.withContext(activity)
@@ -78,6 +88,7 @@ class OnboardingFragment : Fragment() {
                 }
             }).check()
     }
+
 
     companion object {
         @JvmStatic
