@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -27,6 +28,10 @@ class OnboardingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+
         arguments?.let {
             text = it.getString(TEXT_PARAM)
             lastPage = it.getBoolean(LAST_PAGE_PARAM)
@@ -71,6 +76,7 @@ class OnboardingFragment : Fragment() {
         }
     }
 
+
     private fun askPermission() {
         Dexter.withContext(activity)
             .withPermissions(
@@ -91,6 +97,7 @@ class OnboardingFragment : Fragment() {
 
 
     companion object {
+
         @JvmStatic
         fun newInstance(text: String, lastPage: Boolean) =
             OnboardingFragment().apply {
@@ -101,3 +108,5 @@ class OnboardingFragment : Fragment() {
             }
     }
 }
+
+

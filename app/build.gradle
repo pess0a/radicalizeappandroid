@@ -46,6 +46,7 @@ dependencies {
     implementation "com.google.android.material:material:$google_material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.core:core-ktx:$android_core_ktx_version"
+    implementation "androidx.preference:preference:1.1.0"
     //rest
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$converter_gson_version"
