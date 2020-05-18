@@ -16,17 +16,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-            PreferenceManager.getDefaultSharedPreferences(this).apply {
-                // Check if we need to display our OnboardingSupportFragment
-                if (!getBoolean(OnboardingFragment, false)) {
-                    // The user hasn't seen the OnboardingSupportFragment yet, so show it
-                    startActivity(Intent(this@MainActivity, OnboardingActivity::class.java))
-                }
+        PreferenceManager.getDefaultSharedPreferences(this).apply {
+
+            if (!getBoolean(OnboardingActivity.completed_onboarding, false)) {
+                startActivity(Intent(this@MainActivity, OnboardingActivity::class.java))
             }
         }
-
-
     }
 
 
 }
+
+
+

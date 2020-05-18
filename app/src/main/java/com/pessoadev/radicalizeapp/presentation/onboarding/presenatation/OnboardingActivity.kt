@@ -31,8 +31,10 @@ class OnboardingActivity : AppCompatActivity() {
 
     }
 
-    val completed_onboarding: String = "Onboarding complete"
-    val COMPLETED_ONBOARDING_PREF_NAME = "Onboarding Completed"
+    companion object {
+        val completed_onboarding: String = "Onboarding complete"
+    }
+
     fun onButtonNextClicked() {
         pager.currentItem = pager.currentItem + 1
 
@@ -41,6 +43,8 @@ class OnboardingActivity : AppCompatActivity() {
             PreferenceManager.getDefaultSharedPreferences(this).edit().apply {
                 putBoolean(completed_onboarding, true)
                 apply()
+
+
             }
             //todo everton - aqui ficará o inserir boleano para o sharedpreference
             finish()
