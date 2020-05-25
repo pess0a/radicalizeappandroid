@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "207406283614",
+    "firebase_url": "https://radicalizeapp-11d84.firebaseio.com",
+    "project_id": "radicalizeapp-11d84",
+    "storage_bucket": "radicalizeapp-11d84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207406283614:android:91978c8ba6b99203d96dcf",
+        "android_client_info": {
+          "package_name": "com.pessoadev.radicalizeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207406283614-9fr5i3kiasohjc63j2kl5b9n79soj31l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pessoadev.radicalizeapp",
+            "certificate_hash": "33266f3d6f0549ba39918704d1b74cd98f9397c7"
+          }
+        },
+        {
+          "client_id": "207406283614-f709huqukd961ifd6uf225ohnmmr84tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLvPKbDHDtoT1aPHZ-fq4YHTiIPWKVfMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207406283614-f709huqukd961ifd6uf225ohnmmr84tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

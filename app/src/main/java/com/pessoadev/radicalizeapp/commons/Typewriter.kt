@@ -1,4 +1,4 @@
-package com.pessoadev.radicalizeapp.presentation.onboarding.util
+package com.pessoadev.radicalizeapp.commons
 
 import android.os.Handler
 import android.widget.TextView
@@ -29,7 +29,8 @@ class Typewriter(private val textView: TextView) {
     }
 
     inline fun setOnFinishListener(crossinline listener: () -> Unit) {
-        this.onFinishListener = object : OnFinishListener {
+        this.onFinishListener = object :
+            OnFinishListener {
             override fun onFinish() = listener()
         }
     }

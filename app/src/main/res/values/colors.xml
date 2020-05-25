@@ -3,5 +3,6 @@
     <color name="black">#18191a</color>
     <color name="accent">#FF5722</color>
     <color name="white">#fafafa</color>
+    <color name="gray">#b0b0b0</color>
 
 </resources>

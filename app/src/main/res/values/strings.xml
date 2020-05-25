@@ -6,4 +6,5 @@
     <string name="third_text_onboarding">Para sua melhor experiência, pedimos que permita sua localização para que possamos lhe mostrar as melhoras atividades.</string>
     <string name="next">Próximo</string>
     <string name="start">Começar</string>
+    <string name="activities_closer_to_you">Atividades em %1$s</string>
 </resources>

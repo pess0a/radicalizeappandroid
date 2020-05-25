@@ -6,16 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.preference.PreferenceManager
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.pessoadev.radicalizeapp.R
-import com.pessoadev.radicalizeapp.presentation.onboarding.util.Typewriter
+import com.pessoadev.radicalizeapp.commons.Typewriter
 import kotlinx.android.synthetic.main.fragment_onboarding.*
-import kotlinx.android.synthetic.main.fragment_onboarding.view.*
 
 
 private const val TEXT_PARAM = "text"
@@ -29,33 +27,21 @@ class OnboardingFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
         arguments?.let {
             text = it.getString(TEXT_PARAM)
             lastPage = it.getBoolean(LAST_PAGE_PARAM)
         }
-
-//        if(lastPage) {
-//            buttonAskPermission.setOnClickListener {
-//                askPermission()
-//            }
-//        }
     }
 
     override fun onResume() {
         super.onResume()
         view?.let {
-            Typewriter(view!!.textViewAnimate).apply {
-                animateText(text)
-                setOnFinishListener {
-                    if (lastPage) {
-                        buttonAskPermission.visibility = View.VISIBLE
-                    }
-                }
-            }
+
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
     }
 
     override fun onCreateView(
@@ -67,12 +53,29 @@ class OnboardingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Typewriter(textViewAnimate).apply {
+            animateText(text)
+            setOnFinishListener {
+                if (lastPage) {
+                    buttonAskPermission.visibility = View.VISIBLE
+                }
+            }
+        }
+
+        buttonAskPermission.setOnClickListener {
+            askPermission()
+        }
+
         if (lastPage) {
             buttonNext.text = getString(R.string.start)
         }
 
         buttonNext.setOnClickListener {
-            (activity as OnboardingActivity).onButtonNextClicked()
+            if (lastPage) {
+                (activity as OnboardingActivity).onFinishOnboarding()
+            } else {
+                (activity as OnboardingActivity).onButtonNextClicked()
+            }
         }
     }
 
